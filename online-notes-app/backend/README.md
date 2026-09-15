@@ -1,11 +1,47 @@
-# Online Notes API
+# Online Notes App — Complete Full-Stack Project
 
-Express + MongoDB API for the Online Notes App.
+A complete MERN-style notes application matching Project 4 requirements:
+- React + Vite frontend
+- Express.js REST API
+- MongoDB + Mongoose
+- JWT authentication with bcrypt password hashing
+- Create, edit, delete, pin and search/filter notes
+- Per-user note isolation
+- Note color coding and responsive UI
 
-## Run
-1. Install Node.js 18+ and MongoDB.
-2. Copy `.env.example` to `.env` and set `MONGO_URI` and `JWT_SECRET`.
-3. `npm install`
-4. `npm run dev`
+## Requirements
+- Node.js 18+
+- MongoDB local installation OR a MongoDB Atlas connection
 
-API: `http://localhost:5000`
+## Run backend
+```bash
+cd backend
+copy .env.example .env
+# Edit .env and set JWT_SECRET / MONGO_URI
+npm install
+npm run dev
+```
+
+## Run frontend (new terminal)
+```bash
+cd frontend
+copy .env.example .env
+npm install
+npm run dev
+```
+Open http://localhost:5173
+
+### Windows PowerShell alternative for copying env files
+```powershell
+Copy-Item .env.example .env
+```
+
+## API
+- POST `/api/auth/register`
+- POST `/api/auth/login`
+- GET `/api/notes?search=&pinned=true`
+- POST `/api/notes`
+- PUT `/api/notes/:id`
+- DELETE `/api/notes/:id`
+
+Authorization uses `Bearer <JWT>` for note endpoints.
